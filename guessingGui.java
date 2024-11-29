@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class guessingGuy {
+public class guessingGui {
     public static void main(String[] args) {
         Random rand = new Random();
         int randomNumber = rand.nextInt(100) + 1;
@@ -35,7 +35,7 @@ public class guessingGuy {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        // track attempts
+        // track attempts, realno ne znam dali nqma da mi e po-lesno da ne e class
         class AttemptTracker {
             private int attempts = 1;
 
@@ -52,12 +52,12 @@ public class guessingGuy {
 
         guessButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String inputText = inputField.getText().trim();
+                String inputText = inputField.getText();
                 if (isNumeric(inputText)) {
                     int guess = Integer.parseInt(inputText);
                     if (guess == randomNumber) {
                         resultLabel.setText("Correct! You won in " + attemptTracker.getAttempts() + " attempts!");
-                        guessButton.setEnabled(false); // Disable after winning
+                        guessButton.setEnabled(false);
                     } else if (guess < randomNumber) {
                         resultLabel.setText("Incorrect. Guess higher.");
                     } else {
@@ -67,17 +67,16 @@ public class guessingGuy {
                 } else {
                     resultLabel.setText("Please enter a valid number.");
                 }
-                inputField.setText(""); // Clear input
+                inputField.setText(""); //pochisti textbox
             }
 
             // Helper method to validate numeric input
             private boolean isNumeric(String str) {
-                for (char c : str.toCharArray()) {
-                    if (!Character.isDigit(c)) {
-                        return false;
-                    }
+                if (str == null || str == "") return false;
+                for (int i = 0; i < str.length(); i++) {
+                    if (str.charAt(i) < '0' || str.charAt(i) > '9') return false;
                 }
-                return !str.isEmpty();
+                return true;
             }
         });
 

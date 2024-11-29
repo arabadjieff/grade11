@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class guessingGui {
+public class guessingGuy {
     public static void main(String[] args) {
         Random rand = new Random();
         int randomNumber = rand.nextInt(100) + 1;
@@ -32,9 +32,10 @@ public class guessingGui {
         frame.add(inputPanel);
         frame.add(buttonPanel);
         frame.add(resultPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        // Use a custom object to track attempts
+        // track attempts
         class AttemptTracker {
             private int attempts = 1;
 
@@ -51,8 +52,9 @@ public class guessingGui {
 
         guessButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    int guess = Integer.parseInt(inputField.getText());
+                String inputText = inputField.getText().trim();
+                if (isNumeric(inputText)) {
+                    int guess = Integer.parseInt(inputText);
                     if (guess == randomNumber) {
                         resultLabel.setText("Correct! You won in " + attemptTracker.getAttempts() + " attempts!");
                         guessButton.setEnabled(false); // Disable after winning
@@ -62,10 +64,20 @@ public class guessingGui {
                         resultLabel.setText("Incorrect. Guess lower.");
                     }
                     attemptTracker.increment();
-                } catch (NumberFormatException ex) {
+                } else {
                     resultLabel.setText("Please enter a valid number.");
                 }
                 inputField.setText(""); // Clear input
+            }
+
+            // Helper method to validate numeric input
+            private boolean isNumeric(String str) {
+                for (char c : str.toCharArray()) {
+                    if (!Character.isDigit(c)) {
+                        return false;
+                    }
+                }
+                return !str.isEmpty();
             }
         });
 

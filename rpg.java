@@ -9,15 +9,24 @@ public class rpg {
         System.out.println(warrior.getName()+"'s health: " + warrior.getHealth());
         System.out.println(archer.getName()+"'s health: " + archer.getHealth());
         System.out.println("Game is starting...");
+
         wizard.setHealth(warrior);
         System.out.println(warrior.getName()+" attacks " + wizard.getName() + ". Health updated: " + wizard.getHealth());
+
+        wizard.setHealth(archer);
+        System.out.println(warrior.getName()+" attacks " + archer.getName() + ". Health updated: " + archer.getHealth());
 
         archer.setHealth(wizard);
         System.out.println(wizard.getName()+" attacks " + archer.getName() + ". Health updated: " + archer.getHealth());
 
+        archer.setHealth(warrior);
+        System.out.println(warrior.getName()+" attacks " + archer.getName() + ". Health updated: " + archer.getHealth());
+
         warrior.setHealth(archer);
         System.out.println(archer.getName()+" attacks " + warrior.getName() + ". Health updated: " + warrior.getHealth());
 
+        warrior.setHealth(wizard);
+        System.out.println(wizard.getName()+" attacks " + warrior.getName() + ". Health updated: " + warrior.getHealth());
 
     }
 }

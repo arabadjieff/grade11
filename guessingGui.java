@@ -35,7 +35,7 @@ public class guessingGui {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        // track attempts, realno ne znam dali nqma da mi e po-lesno da ne e class
+        //track attempts, realno ne znam dali nqma da mi e po-lesno da ne e class
         class AttemptTracker {
             private int attempts = 1;
 
@@ -70,13 +70,9 @@ public class guessingGui {
                 inputField.setText(""); //pochisti textbox
             }
 
-            // Helper method to validate numeric input
+            //mai stana tvurde slozhno
             private boolean isNumeric(String str) {
-                if (str == null || str == "") return false;
-                for (int i = 0; i < str.length(); i++) {
-                    if (str.charAt(i) < '0' || str.charAt(i) > '9') return false;
-                }
-                return true;
+                return str != null && !str.isEmpty() && str.chars().allMatch(Character::isDigit);
             }
         });
 

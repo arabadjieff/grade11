@@ -18,23 +18,29 @@ public class onlineBookstore {
 
             String input = scanner.nextLine();
 
-            if (input.equals("1")) {
-                displayBooks();
-            } else if (input.equals("2")) {
-                searchBook(scanner);
-            } else if (input.equals("3")) {
-                purchaseBook(scanner);
-            } else if (input.equals("4")) {
-                System.out.println("Thank you for visiting the bookstore!");
-                break;
-            } else {
-                System.out.println("Invalid choice. Please try again.");
+            switch (input) {
+                case "1":
+                    displayBooks();
+                    break;
+                case "2":
+                    searchBook(scanner);
+                    break;
+                case "3":
+                    purchaseBook(scanner);
+                    break;
+                case "4":
+                    System.out.println("Bye!");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice.");
+                    break;
             }
         }
     }
 
     public static void displayBooks() {
-        System.out.println("\nAvailable Books:");
+        System.out.println("Available Books:");
         for (int i = 0; i < titles.length; i++) {
             System.out.println((i + 1) + ". " + titles[i] + " - $" + prices[i] + " (Stock: " + quantities[i] + ")");
         }

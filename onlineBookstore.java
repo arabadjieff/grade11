@@ -30,7 +30,6 @@ public class onlineBookstore {
                     break;
                 case "4":
                     System.out.println("Bye!");
-                    scanner.close();
                     return;
                 default:
                     System.out.println("Invalid choice.");

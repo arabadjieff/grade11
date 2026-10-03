@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+
+public class Main {
+
+
+   public static void main(String[] args) {
+
+
+      Scanner scan = new Scanner(System.in);
+
+
+      System.out.println("Please enter the code of the product you want - either A1, B2, C3, D4:");
+
+
+      String choice = scan.nextLine();
+
+
+      switch (choice) {
+
+
+         case "A1":
+            System.out.println("A1 is a Soda, and it costs $1.50.");
+            return;
+         case "B2":
+            System.out.println("B2 is Chips, and it costs $1.25.");
+            return;
+         case "C3":
+            System.out.println("C3 is Candy, and it costs $0.75.");
+            return;
+         case "D4":
+            System.out.println("D4 is a Water, and it costs $1.00.");
+            return;
+
+
+         default:
+            System.out.println("Invalid input");
+      }
+   }
+}

@@ -1,0 +1,69 @@
+//task 3
+
+
+import java.util.Scanner;
+
+
+public class Main {
+
+
+   public static void main(String[] args) {
+
+
+      Scanner scan = new Scanner(System.in);
+
+
+      System.out.println("Please choose a menu.");
+      System.out.println("1. Science");
+      System.out.println("2. History");
+      System.out.println("3. Sports");
+
+
+      byte choice = scan.nextByte();
+
+
+      switch (choice) {
+      case 1:
+         System.out.println("Welcome to Science.");
+         System.out.println("What is the Speed of Gravity to the second decimal point?");
+         double answer = 9.81;
+         double userAnswer = scan.nextDouble();
+         if (answer==userAnswer){
+            System.out.println("Correct! You earned 1 point.");
+         }
+         else {
+            System.out.println("Incorrect. The correct answer is " + answer + ".");
+         }
+         break;
+      case 2:
+         System.out.println("Welcome to History.");
+         System.out.println("Which year did World War I start?");
+         int answer1 = 1939;
+         int userAnswer1 = scan.nextInt();
+         if (answer1==userAnswer1){
+            System.out.println("Correct! You earned 1 point.");
+         }
+         else {
+            System.out.println("Incorrect. The correct answer is " + answer1 + ".");
+         }
+         break;
+      case 3:
+         System.out.println("Welcome to Sports");
+         System.out.println("Which tennis player has won the most Grand Slams?");
+         String answer2 = "Novak Djokovic";
+         String userAnswer2 = scan.nextLine();
+         if (answer2.equals("userAnswer2")){
+            System.out.println("Correct! You earned 1 point.");
+         }
+         else {
+            System.out.println("Incorrect. The correct answer is " + answer2 + ".");
+         }
+         break;
+
+
+      default:
+         System.out.println("Invalid input");
+      }
+   }
+}
+

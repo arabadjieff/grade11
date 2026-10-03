@@ -1,0 +1,95 @@
+
+
+import java.util.Scanner;
+
+
+
+
+public class Main {
+
+
+   public static void main(String[] args) {
+      byte num = 7;
+
+
+      Scanner scan = new Scanner(System.in);
+
+
+      System.out.println("Please guess a number from 1-10.");
+
+
+      byte choice = scan.nextByte();
+
+
+      switch (choice) {
+
+
+         case 7:
+            System.out.println("Your guess is correct. Woohoo!");
+            return;
+         case 1: case 2: case 3: case 4:
+           case 5: case 6: case 8: case 9: case 10:
+            System.out.println("Your guess is incorrect.");
+            System.out.println("You have two guesses remaining.");
+            break;
+
+
+         default:
+            System.out.println("Invalid input");
+      }
+
+
+      if (choice > num) {
+         System.out.println("Guess lower.");
+      } else if (num > choice) {
+         System.out.println("Guess higher.");
+      }
+
+
+      byte choice1 = scan.nextByte();
+      switch (choice1) {
+
+
+         case 7:
+            System.out.println("Your guess is correct. Woohoo!");
+            return;
+         case 1: case 2: case 3: case 4:
+           case 5: case 6: case 8: case 9: case 10:
+            System.out.println("Your guess is incorrect.");
+            System.out.println("You have one guess remaining.");
+            break;
+
+
+         default:
+            System.out.println("Invalid input");
+      }
+
+
+      if (choice1 > num) {
+         System.out.println("Guess lower.");
+      } else if (num > choice1) {
+         System.out.println("Guess higher.");
+      }
+
+
+      byte choice2 = scan.nextByte();
+      switch (choice2) {
+
+
+         case 7:
+            System.out.println("Your guess is correct. Woohoo!");
+            return;
+         case 1: case 2: case 3: case 4:
+           case 5: case 6: case 8: case 9: case 10:
+            System.out.println("Your guess is incorrect.");
+            System.out.println("You have no guesses remaining. ):");
+            break;
+
+
+         default:
+            System.out.println("Invalid input");
+      }
+
+
+   }
+}
